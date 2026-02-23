@@ -8,5 +8,6 @@ urlpatterns =[
    path('ViewBook/',views.ViewBook,name='ViewBook'),    
    path('addbook/',views.addbook,name='addbook'),
    path('updatebook/<int:id>',views.update_book,name='updatebook'),
-   path('delete/<int:id>',views.delete_book,name='deletebook')
+   path('delete/<int:id>',views.delete_book,name='deletebook'),
+   path('register/',views.register,name='register')
 ]

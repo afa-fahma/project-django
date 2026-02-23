@@ -1,6 +1,6 @@
 from django.shortcuts import render ,redirect
 from .models import book
-from .forms import BookForm
+from .forms import BookForm,userRegistrationform
 
 # Create your views here.
 # from django.http import HttpResponse
@@ -46,3 +46,9 @@ def delete_book(request,id):
         a.delete()
         return redirect(ViewBook)
     return render (request,'deletebook.html',{"abc":a})
+def register(request):
+    form=userRegistrationform(request.POST or None)
+    if request.method=='POST' and form.is_valid():
+        form.save()
+        return redirect('ViewBook')
+    return render (request,'register.html',{"form":form})

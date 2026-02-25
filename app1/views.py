@@ -28,14 +28,14 @@ def ViewBook(request):
     return render(request,'ViewBook.html',{"ab":a})
     
 def addbook(request):
-    a=BookForm(request.POST or None)
+    a=BookForm(request.POST or None,request.FILES or None)
     if a.is_valid():
         a.save()
         return redirect('ViewBook')
     return render(request,'addbook.html',{"abc":a})
 def update_book(request,id):
     a=book.objects.get(id=id)
-    b=BookForm(request.POST or None,instance=a)
+    b=BookForm(request.POST or None,request.FILES or None ,instance=a)
     if b.is_valid():
         b.save()
         return redirect(ViewBook)

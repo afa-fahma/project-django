@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Update Book</h1>
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ab.as_p}}
         <input type="submit" value="submit">

@@ -10,6 +10,7 @@
     <table border="1"
     style="border-collapse: collapse;">
     <tr>
+        <th>cover</th>
         <th style="color:rgb(25, 94, 219) ;">title</th>
         <th style="color:rgb(25, 94, 219) ;">author</th>
         <th style="color:rgb(25, 94, 219) ;">price</th>
@@ -18,9 +19,14 @@
         <th>Update</th>
 
     </tr>
-    
+    {% for i in ab%}
     <tr>
-        {% for i in ab%}
+        <td>{% if i.cover_image %}
+            <img src="{{ i.cover_image.url }}" alt="" width="100">
+            {% else %}
+            No image
+            {% endif %}
+        </td>
         <td style="color: blueviolet;">{{i.title}}</td>
         <td style="color: blueviolet;">{{i.author}}</td>
         <td style="color: blueviolet;">{{i.price}}</td>
